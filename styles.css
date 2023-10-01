@@ -21,6 +21,8 @@ nav {
     padding: 0 2%;
     flex-wrap: wrap; /* Allow wrapping */
     box-shadow: 0 4px 8px rgba(120, 149, 203, 0.3);
+    min-height: 60px; /* or whatever height you prefer */
+    overflow: hidden; /* This can hide any overflowing elements, but it's optional */
 }
 
 .logo {
@@ -39,15 +41,22 @@ nav ul {
     padding-right: 5%;
 }
 
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
 nav ul li {
-   padding: 0;
-   margin: 0 auto;
+   padding: 0.5rem 1rem; /* Adjust as needed */
+    margin: 0; /* Remove margin if any */
 }
 
 nav ul li a {
     color: #C5DFF8;
     text-decoration: none;
     transition: color 0.2s;
+    font-size: 0.8rem; /* Reduce font size on small screens */
 }
 
 nav ul li a:hover {
@@ -317,7 +326,25 @@ hr.style-four {
     section {
         padding: 2rem 2%; /* Reduce padding */
     }
+
+     nav ul li {
+        display: block;
+        text-align: center; /* Optional: Center text */
+    }
 }
+
+@media only screen and (max-width: 768px) {
+    nav ul {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+}
+
+
 
 
 
