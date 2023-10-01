@@ -1,0 +1,326 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #C5DFF8;
+    margin: 0;
+    padding: 0;
+    color: #4A55A2; /* Setting a default font color */
+    padding-top: 3.5%;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%; /* Double the height */
+    background-color: #4A55A2;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+    flex-wrap: wrap; /* Allow wrapping */
+    box-shadow: 0 4px 8px rgba(120, 149, 203, 0.3);
+}
+
+.logo {
+    height: 65%;
+    width: 4.5%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+nav ul {
+     list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    padding-right: 5%;
+}
+
+nav ul li {
+   padding: 0;
+   margin: 0 auto;
+}
+
+nav ul li a {
+    color: #C5DFF8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+nav ul li a:hover {
+    color: #A0BFE0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2%; /* Adjust this value for spacing between the logo and the name */
+}
+
+.logo-text {
+    color: #A0BFE0; /* or another suitable color for visibility against the navbar background */
+    font-size: 1.2em; /* Adjust font size as needed */
+    font-weight: bold; /* This makes the text bold */
+}
+
+
+/* Main sections */
+section {
+    padding: 5rem 5%;
+}
+
+h2:hover{
+    color: #fff;
+}
+
+section#projects {
+    background-color: #7895CB;
+}
+
+section#about {
+    background-color: #A0BFE0;
+}
+
+.about-image {
+    float: left;            /* This makes the image float to the left */
+    margin-right: 2%;      /* Add some space between the image and the text */
+    margin-bottom: 2%;     /* Add some space below the image if the text is short */
+    width: 20%;            /* Assign a percentage width to the image */
+    height: auto;          /* Maintain the image's aspect ratio */
+    border-radius: 5%;
+    box-shadow: 0 4px 8px rgba(120, 149, 203, 0.3);
+}
+
+/* This style is to clear the float after the floated elements */
+#about::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+section#contact, section#skills{
+    background-color: #C5DFF8;
+    font-size: 1.5em;
+  text-align: center;
+  padding: 3% 7%;
+  color: #4A55A2;
+  font-size: 3rem;
+  padding: 2%
+}
+  
+#contact h2, #skills h2 {
+    font-size: 2rem;
+    color: #4A55A2;
+}
+
+#contact a, #skill a {
+    color: #4A55A2;
+  font-size: 3rem;
+  padding: 2%
+}
+
+#contact a:hover {
+    color: #fff;
+}
+
+.contact-icons, .skill-icons {
+    display: flex;
+    gap: 20px; /* Adjust for desired spacing between icons */
+    justify-content: center; /* Horizontally center the icons */
+    margin-top: 20px; /* Space from the header or any other content */
+ 
+}
+
+.contact-icon:hover {
+    transform: scale(1.1); /* Gives a slight zoom effect on hover */
+}
+
+/* Adjusting font color for form labels and inputs */
+form label, form input, form textarea {
+    color: #4A55A2;
+}
+
+
+footer {
+    background-color: #4A55A2;
+    color: #C5DFF8;
+    padding: 1rem 5%;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2-column layout */
+    gap: 2rem; /* spacing between grid items */
+    padding: 2rem;
+}
+
+#projects h1 {
+    grid-column: 1 / 3; /* spans the full width of the grid */
+    text-align: center; /* center-align the text */
+    margin-bottom: 1rem; /* some spacing between title and first row */
+}
+
+article {
+    background: #C5DFF8; /* lightest color for card background */
+    padding: 1rem;
+    border-radius: 8px; /* rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* box shadow effect */
+    position: relative; /* this will help in positioning the images */
+    transition: transform 0.3s; /* smooth transition for hover effect */
+}
+
+article:hover {
+    transform: translateY(-5px); /* lift the card a little when hovered */
+}
+
+.project-title {
+    cursor: pointer; /* to indicate title is clickable */
+    margin-top: 0; /* remove default margin */
+}
+
+.project-link img {
+    max-width: 100%; /* ensure image doesn't overflow */
+    border-radius: 8px; /* rounded corners for images as well */
+    margin-top: 1rem; /* spacing between title and image */
+
+}
+
+
+hr.style-four {
+  border: 0;
+  height: 3px;
+  background-image: linear-gradient(
+    to right,
+    #8FD8F7,
+    #4A55A2,
+    #8FD8F7
+  );
+}
+
+/* Tablets (typically landscape) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    nav ul {
+        padding-right: 3%;
+    }
+    .about-image {
+        width: 30%;
+    }
+    #projects {
+        grid-template-columns: 1fr; /* single-column layout for tablets */
+    }
+    #projects h1 {
+        grid-column: 1; /* adjust for single column layout */
+    }
+}
+
+/* Mobile Phones (typically portrait) */
+@media (max-width: 767px) {
+    nav {
+        flex-direction: column;
+        padding: 1%;
+    }
+
+    .logo {
+        height: 45%;
+        margin-bottom: 5px;
+    }
+
+    nav ul {
+        gap: 10px;
+        padding-right: 0;
+        flex-direction: column; /* Stack the navigation links */
+    }
+
+    nav ul li a {
+        font-size: 1.2em; /* Bigger font size for easier tapping */
+    }
+
+    .logo-container {
+        flex-direction: column; /* Stack the logo and the name */
+        align-items: center;
+    }
+
+    .logo-text {
+        font-size: 1.4em;
+    }
+
+    .about-image {
+        width: 50%;
+        display: block;
+        margin: 0 auto 20px auto; /* centering the image */
+    }
+
+    #projects {
+        grid-template-columns: 1fr; /* single-column layout for mobile */
+    }
+
+    #projects h1 {
+        grid-column: 1; /* adjust for single column layout */
+    }
+
+    .skill-icons, .contact-icons {
+        flex-wrap: wrap;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack the logo and menu vertically */
+    }
+
+    .logo-container {
+        justify-content: center; /* Center the logo */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack the list items vertically */
+        align-items: center; /* Center the list items */
+        width: 100%; /* Take full width of the container */
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        padding: 0.5rem 1rem; /* Add padding for better touch targets */
+    }
+
+    /* Optional: If you want a hamburger menu instead, you can hide the ul and toggle its display with JavaScript */
+    /* nav ul {
+        display: none;
+    } */
+}
+
+@media only screen and (max-width: 480px) {
+    #projects {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    #projects h1 {
+        grid-column: 1; /* Adjust span to single column */
+    }
+     body {
+        padding-top: 10%;
+    }
+    
+    .logo-text {
+        font-size: 1em; /* Reduce font size */
+    }
+
+    section {
+        padding: 2rem 2%; /* Reduce padding */
+    }
+}
+
+
+
+
+
+
