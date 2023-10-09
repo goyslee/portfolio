@@ -30,7 +30,7 @@ function updateSecondsSince() {
 
     // Display in the about section
     const counterElement = document.getElementById("seconds-counter");
-    counterElement.textContent = `I have been coding for ${diffSeconds} seconds.`;
+    counterElement.innerHTML = `I have been coding for <b>${diffSeconds}</b> seconds.`;
 }
 
 // Call the function immediately
