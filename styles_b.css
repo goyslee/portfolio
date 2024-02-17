@@ -346,6 +346,10 @@ hr.style-four {
   animation: flip var(--ease-elastic-in-out-1) 6000ms infinite alternate;
 }
 
+[anim="flip3"]:not(.toggled) {
+  animation: flip var(--ease-elastic-in-out-1) 12000ms infinite alternate;
+}
+
 [anim="fill"]:not(.toggled)::after {
   animation: fill var(--ease-spring-1) 8000ms infinite;
 }
@@ -498,6 +502,10 @@ button {
 @media (max-width: 480px) {
   .logo-text {
     font-size: 1em; /* Reduce font size for small screens */
+  }
+
+  h1 {
+    margin-top: 3rem;
   }
 
   nav ul li a {
