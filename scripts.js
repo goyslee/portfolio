@@ -15,6 +15,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+let navVisible = true; // Tracks the visibility of the navbar
+
+// Function to toggle navigation visibility
+function toggleNav() {
+  if (navVisible) {
+    $("nav").addClass("nav-hidden");
+    navVisible = false;
+  } else {
+    $("nav").removeClass("nav-hidden");
+    navVisible = true;
+  }
+}
+
+// Event listener for some toggle button or swipe event
+$("#nav-toggle").click(function () {
+  // Replace '#nav-toggle' with your actual toggle element's ID or class
+  toggleNav();
+});
+
 function updateSecondsSince() {
   // The start date (01/04/2016 midnight)
   const startDate = new Date("2016-04-01T00:00:00Z");
