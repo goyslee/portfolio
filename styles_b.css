@@ -72,6 +72,12 @@ nav {
   overflow: hidden;
 }
 
+.nav-container {
+  margin-left: 20px; /* Adjust the margin size as needed */
+  margin-right: 20px;
+  max-width: calc(100% - 40px); /* Adjust based on the margin */
+  box-sizing: border-box;
+}
 
 .logo {
   height: 3.5rem; /* Adjusted from 65% */
@@ -79,7 +85,6 @@ nav {
   border-radius: 50%;
   margin-bottom: 1rem; /* Adjusted from 10px, assuming you want to keep similar proportions */
 }
-
 
 nav ul {
   list-style-type: none;
@@ -97,13 +102,13 @@ li {
   list-style-type: none;
 }
 
-ul li button {
+/* ul li button {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
+} */
 
 nav ul li {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem .7rem;
   margin: 0;
 }
 
@@ -573,7 +578,7 @@ button {
 /* For extra small devices */
 @media (max-width: 480px) {
   .logo-text {
-    font-size: 1em; /* Reduce font size for small screens */
+    font-size: .7em; /* Reduce font size for small screens */
   }
 
   h1 {
