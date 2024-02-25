@@ -84,7 +84,12 @@ nav ul li a:hover {
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 3%;
+  gap:3%;
+}
+
+.logo-container button {
+  margin-left: 5%;
+  width: 90%;
 }
 
 .logo-text {
@@ -331,7 +336,7 @@ hr.style-four {
 }
 
 [anim="glitch"]:not(.toggled) {
-  animation: glitch var(--ease-elastic-in-1) 6ms infinite;
+  animation: glitch var(--ease-elastic-in-1) 10000ms infinite; /*6ms*/
 }
 
 [anim="tonyhawk"]:not(.toggled) {
@@ -339,7 +344,7 @@ hr.style-four {
 }
 
 [anim="flip"]:not(.toggled) {
-  animation: flip var(--ease-elastic-in-1) 600ms infinite alternate;
+  animation: flip var(--ease-elastic-in-1) 2000ms infinite alternate; /*600ms*/
 }
 
 [anim="flip2"]:not(.toggled) {
@@ -359,7 +364,7 @@ hr.style-four {
 }
 
 [anim="glow"]:not(.toggled) {
-  animation: glow var(--ease-elastic-in-1) 600ms infinite alternate;
+  animation: glow var(--ease-elastic-in-1) 1500ms infinite alternate; /*600ms*/
 }
 
 [anim="blur"]:not(.toggled) {
