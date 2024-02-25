@@ -579,9 +579,9 @@ button {
     margin-top: 3rem;
   }
 
-  nav ul li a {
-    /* font-size: 0.7rem;  */
-  }
+  /* nav ul li a {
+    font-size: 0.7rem; 
+  } */
 
   section {
     padding: 1rem 5%;
@@ -589,4 +589,5 @@ button {
   h2 {
     font-size: 1rem; 
   }
+}
 }
