@@ -367,6 +367,22 @@ hr.style-four {
   animation: glow var(--ease-elastic-in-1) 1500ms infinite alternate; /*600ms*/
 }
 
+[anim="glow1"]:not(.toggled) {
+  animation: glow var(--ease-elastic-in-1) 1700ms infinite alternate; /*600ms*/
+}
+
+ [anim="glow2"]:not(.toggled) {
+  animation: glow var(--ease-elastic-in-1) 1900ms infinite alternate; /*600ms*/
+}
+
+[anim="glow3"]:not(.toggled) {
+  animation: glow var(--ease-elastic-in-1) 2100ms infinite alternate; /*600ms*/
+}
+
+[anim="glow4"]:not(.toggled) {
+  animation: glow var(--ease-elastic-in-1) 2300ms infinite alternate; /*600ms*/
+}
+
 [anim="blur"]:not(.toggled) {
   animation: blur var(--ease-elastic-in-1) 1s infinite alternate;
 }
