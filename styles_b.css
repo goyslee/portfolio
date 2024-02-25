@@ -72,6 +72,7 @@ nav {
   overflow: hidden;
 }
 
+
 .logo {
   height: 3.5rem; /* Adjusted from 65% */
   width: 3.3rem; /* Adjusted from 4.5% */
@@ -579,9 +580,9 @@ button {
     margin-top: 3rem;
   }
 
-  /* nav ul li a {
-    font-size: 0.7rem; 
-  } */
+  nav ul li a {
+    font-size: 0.8rem; 
+  }
 
   section {
     padding: 1rem 5%;
