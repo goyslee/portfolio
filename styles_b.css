@@ -507,6 +507,25 @@ button {
     color: var(--red);
 }
 
+.star {
+  transform-style: preserve-3d;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  color: red;
+  pointer-events: none;
+}
+
+.star:before {
+  position: absolute;
+  content: '*';
+  color: inherit;
+  inset: 0;
+  /* box-shadow: 0 0 1em .5em #a3c2; */
+  /* filter: drop-shadow(0 0 .5em white); */
+  text-shadow: 0 0 1em #fff5;
+}
+
 /* Media queries from original CSS remain unchanged for layout adjustments /
 @media (max-width: 1024px) and (min-width: 768px) {
 / Tablet styles here */
