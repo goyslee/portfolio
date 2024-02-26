@@ -1,33 +1,6 @@
 // Display the current year in the footer
 document.getElementById("year").innerHTML = new Date().getFullYear();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const projectTitles = document.querySelectorAll(".project-title");
-
-  projectTitles.forEach((title) => {
-    title.addEventListener("click", function () {
-      // The image should be inside an anchor that's a direct sibling of our title.
-      const img = this.nextElementSibling.querySelector("img");
-      if (img) {
-        img.classList.toggle("hidden");
-      }
-    });
-  });
-});
-
-let navVisible = true; // Tracks the visibility of the navbar
-
-// Function to toggle navigation visibility
-function toggleNav() {
-  if (navVisible) {
-    $("nav").addClass("nav-hidden");
-    navVisible = false;
-  } else {
-    $("nav").removeClass("nav-hidden");
-    navVisible = true;
-  }
-}
-
 let fallDirection = 1;
 document.querySelectorAll('input[name="trailside"]').forEach((r) => {
   r.addEventListener("change", (e) => {
@@ -36,13 +9,172 @@ document.querySelectorAll('input[name="trailside"]').forEach((r) => {
   });
 });
 
+const keywords = [
+  // JavaScript and React
+  "var",
+  "let",
+  "const",
+  "if",
+  "else",
+  "for",
+  "while",
+  "do",
+  "switch",
+  "case",
+  "default",
+  "try",
+  "catch",
+  "finally",
+  "break",
+  "continue",
+  "function",
+  "return",
+  "typeof",
+  "delete",
+  "new",
+  "this",
+  "class",
+  "extends",
+  "super",
+  "import",
+  "export",
+  "null",
+  "undefined",
+  "true",
+  "false",
+  "console.log",
+  "useState",
+  "useEffect",
+  "useContext",
+  "useReducer",
+  "useRef",
+  "React.Component",
+  "render",
+  "ReactDOM.render",
+  "props",
+  "state",
+  "componentDidMount",
+  "componentDidUpdate",
+  "componentWillUnmount",
+  "React.memo",
+  "React.Fragment",
+  "JSX",
+
+  // Python
+  "def",
+  "return",
+  "if",
+  "elif",
+  "else",
+  "for",
+  "while",
+  "break",
+  "continue",
+  "try",
+  "except",
+  "finally",
+  "with",
+  "as",
+  "import",
+  "from",
+  "class",
+  "pass",
+  "yield",
+  "raise",
+  "print",
+  "True",
+  "False",
+  "None",
+  "and",
+  "or",
+  "not",
+  "is",
+  "in",
+  "lambda",
+  "global",
+  "nonlocal",
+  "assert",
+  "async",
+  "await",
+  "del",
+  "exec",
+  "yield",
+
+  // PHP
+  "echo",
+  "print",
+  "if",
+  "else",
+  "elseif",
+  "endif",
+  "while",
+  "do",
+  "for",
+  "foreach",
+  "break",
+  "continue",
+  "switch",
+  "case",
+  "default",
+  "return",
+  "function",
+  "class",
+  "public",
+  "protected",
+  "private",
+  "static",
+  "const",
+  "var",
+  "try",
+  "catch",
+  "finally",
+  "throw",
+  "new",
+  "true",
+  "false",
+  "null",
+  "namespace",
+  "use",
+  "extends",
+  "implements",
+  "abstract",
+  "interface",
+  "trait",
+  "final",
+  "global",
+  "include",
+  "require",
+  "isset",
+  "empty",
+  "unset",
+  "array",
+  "__construct",
+  "__destruct",
+  "__call",
+  "__callStatic",
+  "__get",
+  "__set",
+  "__isset",
+  "__unset",
+  "__toString",
+  "__invoke",
+  "__set_state",
+  "__clone",
+  "__debugInfo",
+];
+
+function getRandomElement(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
 let x1 = 0,
   y1 = 0;
 window.client;
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0),
-  dist_to_draw = 50,
-  delay = 1000,
-  fsize = ["1.1rem", "1.4rem", ".8rem", "1.7rem"],
+  dist_to_draw = 20,
+  delay = 2200,
+  fsize = [".6rem", ".8rem", ".2rem", "1.1rem"],
   colors = [
     "hsl(12, 90%, 63%)",
     "hsl(12, 90%, 63%)",
@@ -54,10 +186,14 @@ const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeig
   rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
   selRand = (o) => o[rand(0, o.length - 1)],
   distanceTo = (x1, y1, x2, y2) => Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)),
-  shouldDraw = (x, y) => distanceTo(x1, y1, x, y) >= dist_to_draw,
+  shouldDraw = (x, y) => {
+    const distance = distanceTo(x1, y1, x, y);
+    const shouldCreate = distance >= dist_to_draw && Math.random() > 0.7; // 30% chance to skip
+    return shouldCreate;
+  },
   addStr = (x, y) => {
     const str = document.createElement("div");
-    str.innerHTML = "*";
+    str.innerHTML = getRandomElement(keywords);
     str.className = "star";
     str.style.top = `${y + rand(-20, 20)}px`;
     str.style.left = `${x}px`;
@@ -102,10 +238,18 @@ addEventListener("mousemove", (e) => {
   }
 });
 
-// Event listener for some toggle button or swipe event
-$("#nav-toggle").click(function () {
-  // Replace '#nav-toggle' with your actual toggle element's ID or class
-  toggleNav();
+document.addEventListener("DOMContentLoaded", function () {
+  const projectTitles = document.querySelectorAll(".project-title");
+
+  projectTitles.forEach((title) => {
+    title.addEventListener("click", function () {
+      // The image should be inside an anchor that's a direct sibling of our title.
+      const img = this.nextElementSibling.querySelector("img");
+      if (img) {
+        img.classList.toggle("hidden");
+      }
+    });
+  });
 });
 
 function updateSecondsSince() {

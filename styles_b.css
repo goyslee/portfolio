@@ -44,7 +44,6 @@
   font-style: normal;
 }
 
-
 body {
   font-family: Rajdhani, sans-serif;
   background-color: var(--black); /* Updated color */
@@ -108,7 +107,7 @@ li {
 } */
 
 nav ul li {
-  padding: 0.5rem .7rem;
+  padding: 0.5rem 0.7rem;
   margin: 0;
 }
 
@@ -127,7 +126,7 @@ nav ul li a:hover {
 .logo-container {
   display: flex;
   align-items: center;
-  gap:3%;
+  gap: 3%;
 }
 
 .logo-container button {
@@ -181,7 +180,7 @@ section#about p {
   border-radius: 5%;
   box-shadow: inset 0 4px 8px var(--dark);
   background-color: var(--red);
-  opacity: .8;
+  opacity: 0.8;
 }
 
 #about::after {
@@ -274,12 +273,10 @@ footer {
 }
 
 article {
-  background: var(
-    --black
-  ); 
-padding: 1rem;
-border-radius: 8px;
-box-shadow: inset 0 0 4px var(--red);
+  background: var(--black);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: inset 0 0 4px var(--red);
   position: relative;
   transition: transform 0.3s;
 }
@@ -293,8 +290,8 @@ article:hover {
 }
 
 .big {
-    padding: 2.5%;
-    font-size: 1rem;
+  padding: 2.5%;
+  font-size: 1rem;
 }
 
 .project-title {
@@ -324,7 +321,7 @@ hr.style-four {
 @keyframes shake {
   50% {
     transform: translate3d(20px, 0, 0);
-  }x
+  }
 }
 
 @keyframes flip {
@@ -427,7 +424,7 @@ hr.style-four {
   animation: glow var(--ease-elastic-in-1) 1700ms infinite alternate; /*600ms*/
 }
 
- [anim="glow2"]:not(.toggled) {
+[anim="glow2"]:not(.toggled) {
   animation: glow var(--ease-elastic-in-1) 1900ms infinite alternate; /*600ms*/
 }
 
@@ -500,14 +497,15 @@ button {
 }
 
 .red {
-   color: var(--red);
+  color: var(--red);
 }
 
 .rd:hover {
-    color: var(--red);
+  color: var(--red);
 }
 
 .star {
+  z-index: 9999; /* Ensure this is higher than other elements on the page */
   transform-style: preserve-3d;
   width: 1px;
   height: 1px;
@@ -518,7 +516,7 @@ button {
 
 .star:before {
   position: absolute;
-  content: '*';
+  content: "";
   color: inherit;
   inset: 0;
   /* box-shadow: 0 0 1em .5em #a3c2; */
@@ -534,7 +532,7 @@ button {
 @media (max-width: 1024px) {
   .logo {
     width: 2.5rem;
-    height:2.7rem; /* Increase logo size for better visibility */
+    height: 2.7rem; /* Increase logo size for better visibility */
   }
 
   nav ul {
@@ -584,7 +582,8 @@ button {
     justify-content: center;
   }
 
-  .contact-icons, .skill-icons {
+  .contact-icons,
+  .skill-icons {
     flex-direction: column;
   }
 
@@ -597,7 +596,7 @@ button {
 /* For extra small devices */
 @media (max-width: 480px) {
   .logo-text {
-    font-size: .7em; /* Reduce font size for small screens */
+    font-size: 0.7em; /* Reduce font size for small screens */
   }
 
   h1 {
@@ -605,14 +604,14 @@ button {
   }
 
   nav ul li a {
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
   }
 
   section {
     padding: 1rem 5%;
 
-  h2 {
-    font-size: 1rem; 
+    h2 {
+      font-size: 1rem;
+    }
   }
-}
 }
