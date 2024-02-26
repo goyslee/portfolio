@@ -215,13 +215,14 @@ function addStr() {
   const x = rand(0, window.innerWidth);
   const y = rand(0, vh);
   const str = document.createElement("div");
+  const keywordOverlay = document.getElementById("keyword-overlay");
   str.innerHTML = getRandomElement(keywords); // Now using a random keyword
   str.className = "star";
   str.style.top = `${y}px`;
   str.style.left = `${x}px`;
   str.style.color = selRand(colors);
   str.style.fontSize = selRand(fsize);
-  document.body.appendChild(str);
+  keywordOverlay.appendChild(str);
 
   str.animate(
     {
