@@ -2,37 +2,40 @@
 document.getElementById("year").innerHTML = new Date().getFullYear();
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  const greetingElement = document.getElementById("greetings");
-  const greetingTexts = ["Hello... I am a FULLSTACK ENGINEER...", "Welcome to my Portfolio!"];
+  const greetingElement1 = document.getElementById("greetings");
+  const greetingElement2 = document.getElementById("greetings2");
+  const greetingTexts = ["I am a FULLSTACK ENGINEER", "Welcome to my Portfolio!"];
   let currentTextIndex = 0;
 
-  function animateText() {
-    greetingElement.textContent = ""; // Clear previous text
-    const greetingText = greetingTexts[currentTextIndex];
+  function animateText(element, text, callback) {
+    element.textContent = "";
     let delay = 150;
-
-    for (let i = 0; i < greetingText.length; i++) {
-      const char = greetingText[i];
-      const span = document.createElement("span");
-
-      span.style.color = currentTextIndex === 0 ? "hsl(12, 90%, 63%)" : "white";
-      span.textContent = char === " " ? "\xa0" : char;
-      greetingElement.appendChild(span);
-
-      setTimeout(() => {
-        span.style.opacity = 1;
-      }, delay);
-
-      delay += 150;
+    for (let i = 0; i < text.length; i++) {
+      ((i) => {
+        const char = text[i];
+        const span = document.createElement("span");
+        span.style.opacity = 0;
+        span.style.color = currentTextIndex % 2 === 0 ? "hsl(12, 90%, 63%)" : "white";
+        span.textContent = char === " " ? "\xa0" : char;
+        element.appendChild(span);
+        setTimeout(() => {
+          span.style.opacity = 1;
+        }, i * delay);
+      })(i);
     }
-
-    currentTextIndex = (currentTextIndex + 1) % greetingTexts.length; // Cycle through texts
+    setTimeout(callback, text.length * delay + 500);
   }
 
-  animateText(); // Start with the first text
+  function startAnimations() {
+    animateText(greetingElement1, greetingTexts[0], () => {
+      currentTextIndex++;
+      animateText(greetingElement2, greetingTexts[1], () => {
+        currentTextIndex = 0;
+      });
+    });
+  }
 
-  // Call animateText again after a delay based on the first animation's duration
-  setTimeout(animateText, greetingTexts[0].length * 150 + 1000);
+  startAnimations();
 });
 
 let fallDirection = 1;
